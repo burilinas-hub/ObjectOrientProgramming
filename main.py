@@ -50,7 +50,7 @@ if __name__ == "__main__":
     print(Category.category_count)
     print(Category.product_count)
 
-    products = read_json("C://PythonProject_OOP//data//products.json")
+    products = read_json("C://Users//user//PycharmProjects//ObjectOrientProgramming//data//products.json")
     category_data = create_object_from_json(products)
     print(category_data)
     print(category_data[0].name)
