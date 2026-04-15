@@ -26,6 +26,7 @@ def test_smartphone_wrong_add(smartphone_1: Smartphone, lawngrass_1: LawnGrass) 
 
 def test_demo_work_print(smartphone_1: Smartphone) -> None:
     assert str(smartphone_1) == (
-        "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт. Модель: S23 Ultra, "
+        "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+        " Модель: S23 Ultra, "
         "Память: 256GB, Цвет: Серый"
     )

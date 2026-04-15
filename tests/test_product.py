@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from _pytest.capture import CaptureFixture
+from pytest import CaptureFixture
 
 from src.product import Product
 
@@ -90,8 +90,10 @@ def test___str__() -> None:
     product_2 = Product(
         "Samsung Galaxy S24 Ultra", "250GB, Серый цвет, 210MP камера", 1800.0, 1
     )
-    assert str(product_1) == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
-    assert str(product_2) == "Samsung Galaxy S24 Ultra, 1800.0 руб. Остаток: 1 шт."
+    assert str(product_1) == (
+        "Samsung Galaxy S23 Ultra, " "180000.0 руб. Остаток: 5 шт."
+    )
+    assert str(product_2) == ("Samsung Galaxy S24 Ultra, " "1800.0 руб. Остаток: 1 шт.")
 
 
 def test___add__() -> None:

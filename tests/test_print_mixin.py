@@ -13,7 +13,8 @@ def test_print_mixin_product(capsys: pytest.CaptureFixture) -> None:
     )
     message = capsys.readouterr()
     assert message.out.strip() == (
-        "Product(Samsung Galaxy S23 Ultra, 256GB, Серый цвет, 200MP камера, 180000.0, "
+        "Product(Samsung Galaxy S23 Ultra, 256GB, Серый цвет, "
+        "200MP камера, 180000.0, "
         "5)"
     )
 
@@ -21,7 +22,8 @@ def test_print_mixin_product(capsys: pytest.CaptureFixture) -> None:
 def test_print_mixin_category(capsys: pytest.CaptureFixture) -> None:
     Category(
         name="Смартфоны не обычные",
-        description="Смартфоны не обычные, как средство не только коммуникации,"
+        description="Смартфоны не обычные, как средство "
+        "не только коммуникации,"
         " но и получения дополнительных функций для удобства жизни",
         products=[],
     )

@@ -49,4 +49,4 @@ def test_products() -> None:
 
 def test___str__(category_characters_1: Category) -> None:
 
-    assert str(category_characters_1) == "Смартфоны, количество продуктов: 0 шт."
+    assert str(category_characters_1) == ("Смартфоны, " "количество продуктов: 0 шт.")

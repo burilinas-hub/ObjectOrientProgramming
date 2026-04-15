@@ -84,8 +84,7 @@ class Product(PrintMixin, BaseProduct):
         """Изменение цены в случае ее понижения
         с согласия пользователя"""
         if self.price != new_price:
-            user_confirmed = input("Вы уверены, что хотите " 
-                                   "изменить цену? (y/n):")
+            user_confirmed = input("Вы уверены, что хотите " "изменить цену? (y/n):")
             if user_confirmed.lower() == "y":
                 self.price = new_price
                 return self.price
