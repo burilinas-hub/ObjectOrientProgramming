@@ -27,7 +27,8 @@ class LawnGrass(Product):
         )
 
     def __add__(self, other: "Product") -> float:
-        """Складываем все товары одного типа и получаем стоимость товара типа на складе"""
+        """Складываем все товары одного типа и получаем
+        стоимость товара типа на складе"""
         if type(self) is type(other):
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError
