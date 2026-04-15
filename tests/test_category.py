@@ -5,11 +5,14 @@ from src.product import Product
 
 
 def test_category_init(
-    category_characters_1: Category, category_characters_2: Category, category_characters_3: Category
+    category_characters_1: Category,
+    category_characters_2: Category,
+    category_characters_3: Category,
 ) -> None:
     assert category_characters_1.name == "Смартфоны"
     assert category_characters_1.description == (
-        "Смартфоны, как средство не только коммуникации," " но и получения дополнительных функций для удобства жизни"
+        "Смартфоны, как средство не только коммуникации,"
+        " но и получения дополнительных функций для удобства жизни"
     )
     assert category_characters_1.products == ""
     assert Category.category_count == 3
@@ -18,7 +21,9 @@ def test_category_init(
 
 def test_add_product() -> None:
     category = Category("Смартфон", "Смартфон", [])
-    product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 190000.0, 1)
+    product = Product(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 190000.0, 1
+    )
     init_product_count = Category.product_count
 
     category.add_product(product)
@@ -31,7 +36,9 @@ def test_products() -> None:
     Category.product_count = 0
     category = Category(name="Na_kolenke_sobrano", description=" ", products=[])
 
-    product = Product(name="Na_kolenke_sobrano", description=" ", price=250.0, quantity=5)
+    product = Product(
+        name="Na_kolenke_sobrano", description=" ", price=250.0, quantity=5
+    )
 
     category.add_product(product)
     updated_count = category.product_count

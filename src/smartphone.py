@@ -23,8 +23,10 @@ class Smartphone(Product):
 
     def __str__(self) -> str:
         """Наглядное представление продукта для удобочитаемости"""
-        return (f"{super().__str__()} Модель: {self.model},"
-                f" Память: {self.memory}GB, Цвет: {self.color}")
+        return (
+            f"{super().__str__()} Модель: {self.model},"
+            f" Память: {self.memory}GB, Цвет: {self.color}"
+        )
 
     def __add__(self, other: "Product") -> float:
         """Складываем все товары одного типа и получаем

@@ -1,4 +1,5 @@
 from black import Any
+
 from src.print_mixin import PrintMixin
 from src.product import Product
 

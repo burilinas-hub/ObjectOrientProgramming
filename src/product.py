@@ -1,14 +1,16 @@
-from src.print_mixin import PrintMixin
-from typing import List
 from abc import ABC, abstractmethod
+from typing import List
+
+from src.print_mixin import PrintMixin
 
 
 class BaseProduct(ABC):
 
     @classmethod
     @abstractmethod
-    def new_product(cls, product_data: dict,
-                    product_list: list['Product']) -> 'Product':
+    def new_product(
+        cls, product_data: dict, product_list: list["Product"]
+    ) -> "Product":
         pass
 
     @property
@@ -26,14 +28,15 @@ class BaseProduct(ABC):
         pass
 
     @abstractmethod
-    def __add__(self, other: 'Product') -> float:
+    def __add__(self, other: "Product") -> float:
         pass
 
 
 class Product(PrintMixin, BaseProduct):
 
-    def __init__(self, name: str, description: str,
-                 price: float, quantity: int) -> None:
+    def __init__(
+        self, name: str, description: str, price: float, quantity: int
+    ) -> None:
         self.name = name
         self.description = description
         self.__price = price
@@ -45,8 +48,9 @@ class Product(PrintMixin, BaseProduct):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     @classmethod
-    def new_product(cls, product_data: dict,
-                    product_list: List["Product"]) -> "Product":
+    def new_product(
+        cls, product_data: dict, product_list: List["Product"]
+    ) -> "Product":
         """Принимает вход параметры товара в словаре
         и возвращать созданный объект класса"""
         for existing_product in product_list:
@@ -78,9 +82,9 @@ class Product(PrintMixin, BaseProduct):
 
     def check_change_price(self, new_price: float) -> float | None:
         """Изменение цены в случае ее понижения
-         с согласия пользователя"""
+        с согласия пользователя"""
         if self.price != new_price:
-            user_confirmed = input("Вы уверены, что хотите "
+            user_confirmed = input("Вы уверены, что хотите " 
                                    "изменить цену? (y/n):")
             if user_confirmed.lower() == "y":
                 self.price = new_price
@@ -93,7 +97,7 @@ class Product(PrintMixin, BaseProduct):
 
     def __add__(self, other: "Product") -> float:
         """Складываем все товары одного типа и получаем
-         стоимость товара типа на складе"""
+        стоимость товара типа на складе"""
         if type(other) is Product:
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError

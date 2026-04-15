@@ -25,5 +25,6 @@ def test_lawngrass_wrong_add(smartphone_1: Smartphone, lawngrass_1: LawnGrass) -
 
 def test_demo_work_print(lawngrass_1: LawnGrass) -> None:
     assert str(lawngrass_1) == (
-        "Газонная трава, 500.0 руб. Остаток: 20 шт. Страна: Россия, Срок прорастания: " "7 дней, Цвет: Зеленый"
+        "Газонная трава, 500.0 руб. Остаток: 20 шт. Страна: Россия, Срок прорастания: "
+        "7 дней, Цвет: Зеленый"
     )
