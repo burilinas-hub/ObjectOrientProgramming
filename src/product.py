@@ -3,14 +3,18 @@ from typing import List
 
 class Product:
 
-    def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
+    def __init__(
+        self, name: str, description: str, price: float, quantity: int
+    ) -> None:
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, product_data: dict, product_list: List["Product"]) -> "Product":
+    def new_product(
+        cls, product_data: dict, product_list: List["Product"]
+    ) -> "Product":
         """Принимает вход параметры товара в словаре и возвращать созданный объект класса"""
         for existing_product in product_list:
             if existing_product.name == product_data["name"]:
