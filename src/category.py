@@ -1,12 +1,7 @@
-from black import Any
-
-from src.print_mixin import PrintMixin
 from src.product import Product
 
 
-class Category(PrintMixin):
-    """Родительский класс"""
-
+class Category:
     category_count = 0
     product_count = 0
 
@@ -16,29 +11,20 @@ class Category(PrintMixin):
         self.__products = products
         Category.category_count += 1
         Category.product_count += len(products)
-        super().__init__()
 
-    def __str__(self) -> str:
-        """Оптимизирую возврат строкового отображения товаров"""
-        product_summ = 0
-        for product in self.__products:
-            product_summ += product.quantity
-        return f"{self.name}, количество продуктов: {product_summ} шт."
-
-    def add_product(self, product: Product | Any) -> None:
+    def add_product(self, product: Product) -> None:
         """Добавляем новый продукт"""
-        if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
-        else:
-            raise TypeError
+        self.__products.append(product)
+        Category.product_count += 1
 
     @property
     def products(self) -> str:
         """Возвращает форматированную строку с информацией о продуктах"""
         products_list = ""
         for product in self.__products:
-            products_list += f"{str(product)}\n"
+            products_list += (
+                f"{product.name},{product.price}руб.Остаток:{product.quantity}шт.\n"
+            )
         return products_list
 
     @products.setter
