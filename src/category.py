@@ -12,6 +12,13 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+    def __str__(self) -> str:
+        """Оптимизирую возврат строкового отображения товаров"""
+        product_summ = 0
+        for product in self.__products:
+            product_summ += product.quantity
+        return f"{self.name}, количество продуктов: {product_summ} шт."
+
     def add_product(self, product: Product) -> None:
         """Добавляем новый продукт"""
         self.__products.append(product)

@@ -3,13 +3,15 @@ from typing import List
 
 class Product:
 
-    def __init__(
-        self, name: str, description: str, price: float, quantity: int
-    ) -> None:
+    def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
+
+    def __str__(self) -> str:
+        """Возврат форматированной строки характеристик товара"""
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     @classmethod
     def new_product(
