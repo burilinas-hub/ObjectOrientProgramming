@@ -1,8 +1,6 @@
 from src.category import Category
 from src.product import Product
 
-"""Тестирование категорий свойств продуктов"""
-
 
 def test_category_init(
     category_characters_1: Category,
@@ -34,19 +32,16 @@ def test_add_product() -> None:
 
 def test_products() -> None:
     Category.product_count = 0
-    category = Category(name="Na_kolenke_sobrano", description=" ", products=[])
+    category = Category(name="Made in China", description=" ", products=[])
 
-    product = Product(
-        name="Na_kolenke_sobrano", description=" ", price=250.0, quantity=5
-    )
+    product = Product(name="Made in China", description=" ", price=250.0, quantity=5)
 
     category.add_product(product)
     updated_count = category.product_count
     result = category.products
     assert updated_count == 1
-    assert result == "Na_kolenke_sobrano, 250.0 руб. Остаток: 5 шт.\n"
+    assert result == "Название продукта: Made in China, 250.0 руб. Остаток: 5 шт.\n"
 
 
 def test___str__(category_characters_1: Category) -> None:
-
-    assert str(category_characters_1) == ("Смартфоны, " "количество продуктов: 0 шт.")
+    assert str(category_characters_1) == "Смартфоны, количество продуктов: 0 шт."
