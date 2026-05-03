@@ -41,3 +41,7 @@ def test_products() -> None:
     result = category.products
     assert updated_count == 1
     assert result == "Название продукта: Made in China, 250.0 руб. Остаток: 5 шт.\n"
+
+
+def test___str__(category_characters_1: Category) -> None:
+    assert str(category_characters_1) == "Смартфоны, количество продуктов: 0 шт."
